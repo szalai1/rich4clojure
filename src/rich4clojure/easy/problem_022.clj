@@ -11,7 +11,13 @@
 
 (def restricted [count])
 
-(def __ :tests-will-fail)
+(def __
+  (fn [s]
+    (loop [ss s
+           n 0]
+      (if (empty? ss)
+        n
+        (recur (rest ss) (inc n))))))
 
 (comment
   

@@ -11,7 +11,7 @@
 
 (def restricted [nth])
 
-(def __ :tests-will-fail)
+(def __ (fn [c n] (if (= n 0) (first c) (recur (rest c) (- n 1)))))
 
 (comment
   

@@ -10,7 +10,14 @@
 
 (def restricted [reverse rseq])
 
-(def __ :tests-will-fail)
+(def __ (fn [s]
+          (loop [ss s
+                 rev []]
+            (if (empty? ss)
+              rev
+              (recur
+                (butlast ss)
+                (conj rev (last ss)))))))
 
 (comment
   

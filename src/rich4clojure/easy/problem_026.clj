@@ -9,7 +9,17 @@
 ;; Write a function which returns the first X fibonacci
 ;; numbers.
 
-(def __ :tests-will-fail)
+(def __ (fn [n]
+           (loop [n (- n 1)
+                  l [1]]
+             (if (<= n 0)
+               l
+               (recur
+                 (- n 1)
+                 (conj l
+                       (+ (last l)
+                          (or (last (butlast l)) 0)))))))
+          )
 
 (comment
   

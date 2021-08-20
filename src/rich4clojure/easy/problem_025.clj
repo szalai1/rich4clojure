@@ -9,7 +9,7 @@
 ;; Write a function which returns only the odd numbers
 ;; from a sequence.
 
-(def __ :tests-will-fail)
+(def __ #(filter odd? %))
 
 (comment
   
