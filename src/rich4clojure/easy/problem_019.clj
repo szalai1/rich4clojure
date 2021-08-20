@@ -11,7 +11,7 @@
 
 (def restricted [last])
 
-(def __ :tests-will-fail)
+(def __ (fn [[f & rest]] (if (nil? rest) f (recur rest  ))))
 
 (comment
   
