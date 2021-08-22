@@ -10,7 +10,21 @@
 
 (def restricted [flatten])
 
-(def __ :tests-will-fail)
+(def __ (fn fl
+          [s]
+          (if (or (seq? s) (vector? s))
+           (loop [s s
+                  flattened []]
+             (let [f (first s)
+                   flattened-f (if (or (seq? f) (vector? f))
+                                (fl f)
+                                [f])
+                   r (rest s)]
+               (if (nil? f)
+                 flattened
+                 (recur r (apply conj flattened flattened-f)) )
+               ))
+           [s])))
 
 (comment
   
