@@ -12,11 +12,11 @@
 
 (def __ (fn fl
           [s]
-          (if (or (seq? s) (vector? s))
+          (if (sequential? s)
            (loop [s s
                   flattened []]
              (let [f (first s)
-                   flattened-f (if (or (seq? f) (vector? f))
+                   flattened-f (if (sequential? f)
                                 (fl f)
                                 [f])
                    r (rest s)]

@@ -9,7 +9,7 @@
 ;; Write a function which takes a string and returns a new
 ;; string containing only the capital letters.
 
-(def __ :tests-will-fail)
+(def __ (fn [s] (apply str (filter #(Character/isUpperCase %) s))))
 
 (comment
   
@@ -17,8 +17,9 @@
 
 (tests
   (__ "HeLlO, WoRlD!") := "HLOWRD"
-  (__ "nothing") :=
-  (__ "$#A(*&987Zf") := "AZ")
+  (__ "nothing") := ""
+  (__ "$#A(*&987Zf") := "AZ"
+  )
 
 ;; Share your solution, and/or check how others did it:
 ;; https://gist.github.com/bdbcf005bcae10b15531ebe3a7d0be9c
