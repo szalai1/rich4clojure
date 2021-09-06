@@ -9,7 +9,18 @@
 ;; Write a function which removes consecutive duplicates
 ;; from a sequence.
 
-(def __ :tests-will-fail)
+(def __ (fn [s]
+          (loop [prev-char (first s)
+                 current-char (second s)
+                 s (nthrest s 2)
+                 result [prev-char]]
+            (if (empty? s)
+              (if (= prev-char current-char)
+                result
+                (conj result current-char))
+                (if (= prev-char current-char)
+                  (recur prev-char (first s) (rest s) result)
+                  (recur current-char (first s) (rest s) (conj result current-char)))))))
 
 (comment
   
