@@ -9,7 +9,7 @@
 ;; Write a function which duplicates each element of a
 ;; sequence.
 
-(def __ :tests-will-fail)
+(def __ (fn [l] (->> l (map (fn [x] [x x])) (apply concat))))
 
 (comment
   

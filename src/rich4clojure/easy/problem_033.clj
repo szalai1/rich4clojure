@@ -8,8 +8,12 @@
 ;; 
 ;; Write a function which replicates each element of a
 ;; sequence a variable number of times.
-
-(def __ :tests-will-fail)
+(defn ntimes [x n]
+  (loop [n n
+         res []]
+    (if (> n 0)
+      (recur (- n 1) (conj res x)) res)))
+(def __ (fn [l n] (apply interleave (ntimes l n))))
 
 (comment
   
