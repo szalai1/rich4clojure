@@ -11,7 +11,9 @@
 
 (def restricted [range])
 
-(def __ :tests-will-fail)
+(def __ #(loop [a %1
+                b %2
+                res []] (if (< a b ) (recur (inc a) b (conj res a)) res) ))
 
 (comment
   
