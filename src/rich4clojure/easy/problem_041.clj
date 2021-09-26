@@ -9,7 +9,7 @@
 ;; Write a function which drops every Nth item from a
 ;; sequence.
 
-(def __ :tests-will-fail)
+(def __ #(->> %1 ( partition-all (- %2 1) %2) flatten))
 
 (comment
   
