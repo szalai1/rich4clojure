@@ -12,7 +12,14 @@
 
 (def restricted [interleave])
 
-(def __ :tests-will-fail)
+(def __ #(loop [a %1
+               b %2
+               res []]
+          (if (or (empty? a) (empty? b))
+            res
+            (recur (rest a)
+                   (rest b)
+                   (conj (conj res (first a)) (first b))))))
 
 (comment
   
