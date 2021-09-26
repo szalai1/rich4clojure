@@ -11,7 +11,7 @@
 
 (def restricted [max max-key])
 
-(def __ :tests-will-fail)
+(def __ (fn [& l] (reduce #(if (> %1 %2) %1 %2) l)))
 
 (comment
   
