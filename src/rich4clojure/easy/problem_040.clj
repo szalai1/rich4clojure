@@ -12,8 +12,7 @@
 (def restricted [interpose])
 
 (def __ (fn [sep l]
-          (concat
-            (mapcat #(vector %1 sep) (butlast l)) [ (last l) ])))
+            (butlast (mapcat #(vector %1 sep) l))))
 
 (comment
   
