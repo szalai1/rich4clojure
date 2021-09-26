@@ -11,7 +11,9 @@
 
 (def restricted [interpose])
 
-(def __ :tests-will-fail)
+(def __ (fn [sep l]
+          (concat
+            (mapcat #(vector %1 sep) (butlast l)) [ (last l) ])))
 
 (comment
   
