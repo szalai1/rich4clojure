@@ -9,7 +9,7 @@
 ;; collection. It returns the first logical true value of
 ;; (predicate x) where x is an item in the collection.
 
-(def __ :tests-will-fail)
+(def __ 6)
 
 (comment
   

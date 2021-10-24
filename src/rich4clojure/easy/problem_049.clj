@@ -11,7 +11,7 @@
 
 (def restricted [split-at])
 
-(def __ :tests-will-fail)
+(def __ (fn [n x] [(take n x) (drop n x)]) )
 
 (comment
   

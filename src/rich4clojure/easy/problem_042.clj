@@ -8,7 +8,7 @@
 ;; 
 ;; Write a function which calculates factorials.
 
-(def __ :tests-will-fail)
+(def __ #(reduce * (range 1 (inc %))) )
 
 (comment
   
