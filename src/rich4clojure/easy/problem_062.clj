@@ -13,14 +13,7 @@
 
 (def restricted [iterate])
 
-  
-
-(take 5 (my-iter inc 1))
 (def __  (fn [f x] (lazy-seq (cons x (my-iter f (f x)))))) 
-
-(lazy-seq (cons ))
-
-(reduce )
 
 (comment
   
