@@ -12,7 +12,8 @@
 
 (def restricted [intersection])
 
-(def __ :tests-will-fail)
+(def __ (fn [a b] (let [a-b (clojure.set/difference a b)]
+                    (clojure.set/difference a a-b))))
 
 (comment
   
