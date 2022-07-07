@@ -10,8 +10,10 @@
 ;; the parameters are true, but not all of the parameters
 ;; are true. Otherwise your function should return false.
 
-(def __ :tests-will-fail)
-
+(def __ (fn [& vars]
+          (and (not (every? true? vars))
+               (not (every? false? vars)))))
+;; not= is a better solution
 (comment
   
   )
