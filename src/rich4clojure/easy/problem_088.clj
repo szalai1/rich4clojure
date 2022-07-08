@@ -10,17 +10,18 @@
 ;; of two sets. The symmetric difference is the set of
 ;; items belonging to one but not both of the two sets.
 
-(def __ :tests-will-fail)
+(def __ (fn [a b]
+          (let [u (clojure.set/union a b)
+                i (clojure.set/intersection a b)]
+            (clojure.set/difference u i))))
 
-(comment
-  
-  )
+(comment)
 
 (tests
-  (__ #{1 2 3 4 5 6} #{1 3 5 7}) := #{2 4 6 7}
-  (__ #{:a :b :c} #{}) := #{:a :b :c}
-  (__ #{} #{4 5 6}) := #{4 5 6}
-  (__ #{[1 2] [2 3]} #{[2 3] [3 4]}) := #{[1 2] [3 4]})
+ (__ #{1 2 3 4 5 6} #{1 3 5 7}) := #{2 4 6 7}
+ (__ #{:a :b :c} #{}) := #{:a :b :c}
+ (__ #{} #{4 5 6}) := #{4 5 6}
+ (__ #{[1 2] [2 3]} #{[2 3] [3 4]}) := #{[1 2] [3 4]})
 
 ;; Share your solution, and/or check how others did it:
 ;; https://gist.github.com/b78bc7de41bb6cef6ca18c1e924bb5ac
