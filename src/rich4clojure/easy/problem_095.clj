@@ -11,7 +11,15 @@
 ;; tree must have a value, a left child, and a right
 ;; child.
 
-(def __ :tests-will-fail)
+
+(def __ (fn check-btree [t]
+          (if (nil? t) true
+              (if (or (not (sequential? t))
+                      (not= 3 (count t))) false
+                  (let [[v l r] t
+                        lt (check-btree l)
+                        rt (check-btree r)]
+                    (and lt rt))))))
 
 (comment
   
