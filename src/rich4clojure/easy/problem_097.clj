@@ -19,22 +19,27 @@
 ;; Write a function which returns the nth row of Pascal's
 ;; Triangle.
 
-(def __ :tests-will-fail)
+(def __ (fn pascal-t [n]
+          (case n
+            1 [1]
+            2 [1 1]
+            (let [prv (pascal-t (- n 1))
+                  new-line (map #(apply + %) (partition 2 1 prv))]
+              (concat [1] new-line [1])))))
 
-(comment
-  
-  )
+(comment)
+
 
 (tests
-  (__ 1) := [1]
-  (map __ (range 1 6)) :=
-   [     [1]
-        [1 1]
-       [1 2 1]
-      [1 3 3 1]
-     [1 4 6 4 1]]
-  (__ 11) :=
-   [1 10 45 120 210 252 210 120 45 10 1])
+ (__ 1) := [1]
+ (map __ (range 1 6)) :=
+ [[1]
+  [1 1]
+  [1 2 1]
+  [1 3 3 1]
+  [1 4 6 4 1]]
+ (__ 11) :=
+ [1 10 45 120 210 252 210 120 45 10 1])
 
 ;; Share your solution, and/or check how others did it:
 ;; https://gist.github.com/8f92cec20d7adca8acce102adcbd01c8
