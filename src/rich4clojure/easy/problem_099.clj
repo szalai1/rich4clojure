@@ -9,7 +9,13 @@
 ;; Write a function which multiplies two numbers and
 ;; returns the result as a sequence of its digits.
 
-(def __ :tests-will-fail)
+(def __ (fn [x y]
+          (loop [n (* x y)
+                 res []]
+            (if (< n 10)
+              (reverse (conj res n))
+              (recur (quot n 10)
+                     (conj res (mod n 10)))))))
 
 (comment
   
