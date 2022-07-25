@@ -10,7 +10,14 @@
 ;; multiple. Your function should accept a variable number
 ;; of positive integers or ratios.
 
-(def __ :tests-will-fail)
+(defn gcd
+  "Greatest common divisor"
+  [x y]
+    (if (= y 0)
+      x
+      (gcd y (mod x y))))
+
+(def __ (fn [& nums] (reduce #(/ (* %1 %2) (gcd %1 %2)) nums)))
 
 (comment
   
