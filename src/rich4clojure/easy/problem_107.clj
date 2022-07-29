@@ -22,12 +22,11 @@
 ;; that the effect of this is to preserve the value of n
 ;; for use outside the scope in which it is defined.
 
-(def __ :tests-will-fail)
+(def __ (fn [n] (fn [x] (int (Math/pow x n)))))
 
 (comment
   
   )
-
 (tests
   256 := ((__ 2) 16),
        ((__ 8) 2)
